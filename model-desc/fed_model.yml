@@ -40,16 +40,52 @@ Nodes:
       Class: primary
       Template: 'No'
     Props:
-      - identifier
-      - name
+      - summary
+      - data
+      - gateways
+      - subject_data
+
+  subject_data:
+    Desc: Detailed data structure containing comprehensive information about a subject including identifiers and relationships.
+    Tags:
+      Category: clinical
+      Assignment: core
+      Class: secondary
+      Template: 'No'
+    Props:
+      - id
+      - kind
+      - gateways
+      - subject_metadata
+
+  subject_metadata:
+    Desc: Metadata container for subject-specific information including demographics, vital status, and clinical characteristics.
+    Tags:
+      Category: clinical
+      Assignment: core
+      Class: secondary
+      Template: 'No'
+    Props:
       - sex
       - race
       - ethnicity
-      - identifiers
       - vital_status
+      - identifiers
       - age_at_vital_status
       - associated_diagnoses
-      - metadata
+      - depositions
+      - unharmonized
+
+  subject_id:
+    Desc: Identifier structure for subjects containing namespace and name components.
+    Tags:
+      Category: clinical
+      Assignment: core
+      Class: secondary
+      Template: 'No'
+    Props:
+      - namespace
+      - name
 
   sample:
     Desc: A biological sample collected from a subject. Samples contain detailed information about the collection process, preservation, molecular characteristics, and diagnostic context.
@@ -59,24 +95,60 @@ Nodes:
       Class: primary
       Template: 'No'
     Props:
-      - identifier
-      - subject_identifier
+      - summary
+      - data
+      - gateways
+      - sample_data
+
+  sample_data:
+    Desc: Detailed data structure containing comprehensive information about a sample including identifiers and relationships to subjects.
+    Tags:
+      Category: biospecimen
+      Assignment: core
+      Class: secondary
+      Template: 'No'
+    Props:
+      - id
+      - subject_id
+      - gateways
+      - sample_metadata
+
+  sample_metadata:
+    Desc: Metadata container for sample-specific information including diagnostic details, collection methods, and molecular characteristics.
+    Tags:
+      Category: biospecimen
+      Assignment: core
+      Class: secondary
+      Template: 'No'
+    Props:
+      - tumor_classification
+      - diagnosis
       - age_at_diagnosis
       - age_at_collection
-      - anatomical_site
-      - diagnosis
-      - disease_phase
-      - tissue_type
-      - tumor_classification
-      - tumor_tissue_morphology
-      - tumor_grade
       - library_strategy
+      - preservation_method
+      - tissue_type
+      - tumor_tissue_morphology
+      - disease_phase
+      - depositions
+      - identifiers
+      - unharmonized
+      - specimen_molecular_analyte_type
       - library_source_material
       - library_selection_method
-      - preservation_method
-      - specimen_molecular_analyte_type
-      - identifiers
-      - metadata
+      - anatomical_sites
+      - tumor_grade
+
+  sample_id:
+    Desc: Identifier structure for samples containing namespace and name components.
+    Tags:
+      Category: biospecimen
+      Assignment: core
+      Class: secondary
+      Template: 'No'
+    Props:
+      - namespace
+      - name
 
   file:
     Desc: Data files associated with subjects and samples. Files represent digital artifacts such as genomic data, imaging data, or other research outputs stored in various formats.
@@ -86,14 +158,60 @@ Nodes:
       Class: primary
       Template: 'No'
     Props:
-      - identifier
-      - name
+      - summary
+      - data
+      - gateways
+      - file_data
+
+  file_data:
+    Desc: Detailed data structure containing comprehensive information about a file including identifiers and associated samples.
+    Tags:
+      Category: data_file
+      Assignment: core
+      Class: secondary
+      Template: 'No'
+    Props:
+      - id
+      - samples_id
+      - gateways
+      - file_metadata
+
+  file_metadata:
+    Desc: Metadata container for file-specific information including type, size, checksums, and descriptions.
+    Tags:
+      Category: data_file
+      Assignment: core
+      Class: secondary
+      Template: 'No'
+    Props:
       - type
       - size
-      - description
       - checksums
-      - samples
-      - metadata
+      - description
+      - depositions
+      - unharmonized
+
+  file_id:
+    Desc: Identifier structure for files containing namespace and name components.
+    Tags:
+      Category: data_file
+      Assignment: core
+      Class: secondary
+      Template: 'No'
+    Props:
+      - namespace
+      - name
+
+  file_namespace:
+    Desc: Namespace information specific to file organization and identification within the federation.
+    Tags:
+      Category: data_file
+      Assignment: core
+      Class: secondary
+      Template: 'No'
+    Props:
+      - organization
+      - name
 
   gateway:
     Desc: Access mechanisms through which subjects, samples, and files can be retrieved or accessed. Gateways provide the technical infrastructure for data access and integration.
@@ -124,6 +242,27 @@ Relationships:
         Dst: namespace
     Props: null
 
+  has_subject_data:
+    Mul: one_to_one
+    Ends:
+      - Src: subject
+        Dst: subject_data
+    Props: null
+
+  has_subject_metadata:
+    Mul: one_to_one
+    Ends:
+      - Src: subject_data
+        Dst: subject_metadata
+    Props: null
+
+  has_subject_id:
+    Mul: one_to_one
+    Ends:
+      - Src: subject_data
+        Dst: subject_id
+    Props: null
+
   belongs_to_subject:
     Mul: many_to_one
     Ends:
@@ -131,11 +270,60 @@ Relationships:
         Dst: subject
     Props: null
 
+  has_sample_data:
+    Mul: one_to_one
+    Ends:
+      - Src: sample
+        Dst: sample_data
+    Props: null
+
+  has_sample_metadata:
+    Mul: one_to_one
+    Ends:
+      - Src: sample_data
+        Dst: sample_metadata
+    Props: null
+
+  has_sample_id:
+    Mul: one_to_one
+    Ends:
+      - Src: sample_data
+        Dst: sample_id
+    Props: null
+
   belongs_to_samples:
     Mul: many_to_many
     Ends:
       - Src: file
         Dst: sample
+    Props: null
+
+  has_file_data:
+    Mul: one_to_one
+    Ends:
+      - Src: file
+        Dst: file_data
+    Props: null
+
+  has_file_metadata:
+    Mul: one_to_one
+    Ends:
+      - Src: file_data
+        Dst: file_metadata
+    Props: null
+
+  has_file_id:
+    Mul: one_to_one
+    Ends:
+      - Src: file_data
+        Dst: file_id
+    Props: null
+
+  has_file_namespace:
+    Mul: one_to_one
+    Ends:
+      - Src: file_id
+        Dst: file_namespace
     Props: null
 
   accessed_through_gateway:

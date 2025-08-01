@@ -513,3 +513,174 @@ PropDefinitions:
     Src: CCDI
     Type: object
     Req: 'No'
+
+  # Common properties for main entities
+  summary:
+    Desc: Summary information and statistics for the entity
+    Term:
+      - Origin: local
+        Code: 'entity_summary'
+        Value: 'Entity Summary'
+    Src: CCDI
+    Type: object
+    Req: 'No'
+
+  data:
+    Desc: Collection of data points and information associated with the entity
+    Term:
+      - Origin: local
+        Code: 'entity_data'
+        Value: 'Entity Data'
+    Src: CCDI
+    Type: array
+    Req: 'No'
+
+  gateways:
+    Desc: Access mechanisms through which the entity can be retrieved
+    Term:
+      - Origin: local
+        Code: 'entity_gateways'
+        Value: 'Entity Gateways'
+    Src: CCDI
+    Type: array
+    Req: 'No'
+
+  # Subject data structure properties
+  subject_data:
+    Desc: Detailed subject data structure containing identifiers and metadata
+    Term:
+      - Origin: local
+        Code: 'subject_data_structure'
+        Value: 'Subject Data Structure'
+    Src: CCDI
+    Type: object
+    Req: 'No'
+
+  # Sample data structure properties
+  sample_data:
+    Desc: Detailed sample data structure containing identifiers and metadata
+    Term:
+      - Origin: local
+        Code: 'sample_data_structure'
+        Value: 'Sample Data Structure'
+    Src: CCDI
+    Type: object
+    Req: 'No'
+
+  # File data structure properties
+  file_data:
+    Desc: Detailed file data structure containing identifiers and metadata
+    Term:
+      - Origin: local
+        Code: 'file_data_structure'
+        Value: 'File Data Structure'
+    Src: CCDI
+    Type: object
+    Req: 'No'
+
+  # ID structure properties
+  id:
+    Desc: Unique identifier object containing namespace and name
+    Term:
+      - Origin: local
+        Code: 'entity_id'
+        Value: 'Entity ID'
+    Src: CCDI
+    Type: object
+    Req: 'Yes'
+
+  subject_id:
+    Desc: Reference to the subject identifier this entity belongs to
+    Term:
+      - Origin: local
+        Code: 'parent_subject_id'
+        Value: 'Parent Subject ID'
+    Src: CCDI
+    Type: object
+    Req: 'Yes'
+
+  samples_id:
+    Desc: Array of sample identifiers associated with this file
+    Term:
+      - Origin: local
+        Code: 'associated_samples_id'
+        Value: 'Associated Samples ID'
+    Src: CCDI
+    Type:
+      value_type: list
+      item_type: object
+    Req: 'Yes'
+
+  # Metadata structure properties
+  subject_metadata:
+    Desc: Metadata container for subject-specific information
+    Term:
+      - Origin: local
+        Code: 'subject_metadata_structure'
+        Value: 'Subject Metadata Structure'
+    Src: CCDI
+    Type: object
+    Req: 'No'
+
+  sample_metadata:
+    Desc: Metadata container for sample-specific information
+    Term:
+      - Origin: local
+        Code: 'sample_metadata_structure'
+        Value: 'Sample Metadata Structure'
+    Src: CCDI
+    Type: object
+    Req: 'No'
+
+  file_metadata:
+    Desc: Metadata container for file-specific information
+    Term:
+      - Origin: local
+        Code: 'file_metadata_structure'
+        Value: 'File Metadata Structure'
+    Src: CCDI
+    Type: object
+    Req: 'No'
+
+  # Additional metadata properties
+  depositions:
+    Desc: Information about data depositions and external repositories
+    Term:
+      - Origin: local
+        Code: 'data_depositions'
+        Value: 'Data Depositions'
+    Src: CCDI
+    Type: array
+    Req: 'No'
+
+  unharmonized:
+    Desc: Unharmonized metadata fields that are source-specific
+    Term:
+      - Origin: local
+        Code: 'unharmonized_metadata'
+        Value: 'Unharmonized Metadata'
+    Src: CCDI
+    Type: object
+    Req: 'No'
+
+  anatomical_sites:
+    Desc: Multiple anatomical sites associated with the sample
+    Term:
+      - Origin: local
+        Code: 'sample_anatomical_sites'
+        Value: 'Sample Anatomical Sites'
+    Src: CCDI
+    Type:
+      value_type: list
+      item_type: string
+    Req: 'No'
+
+  organization:
+    Desc: Organization identifier within the namespace structure
+    Term:
+      - Origin: local
+        Code: 'namespace_organization'
+        Value: 'Namespace Organization'
+    Src: CCDI
+    Type: string
+    Req: 'Yes'
