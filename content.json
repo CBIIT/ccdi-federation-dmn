@@ -8,14 +8,13 @@
     "loading-file": "model-navigator-resources/Example_Files.zip",
     "model-navigator-logo": "model-navigator-resources/logo.png",
     "semantics": {
-      "file-nodes": {
-        "data_file": {
-          "id-field": "data_file_uuid",
-          "name-field": "data_file_name",
-          "size-field": "data_file_size",
-          "md5-field": "data_file_checksum_value"
-        }
-      }
+        "name": "Federation",
+        "description": "CCDI Federation Data Model",
+        "version": "1.0.0",
+        "modelType": "federation",
+        "modelTypeDisplayName": "Federation",
+        "modelTypeDescription": "Federation Data Model for CCDI",
+        "modelTypeIcon": "logo"
     },
     "current-version": "1.0.0",
     "versions": [
