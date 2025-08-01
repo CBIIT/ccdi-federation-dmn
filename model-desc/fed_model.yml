@@ -1,0 +1,150 @@
+# CCDI Federation Data Model - Entity Definitions and Relationships
+# Generated from OpenAPI Federation Resource v1.2.0
+
+Nodes:
+  organization:
+    Desc: An organization that owns namespaces within the CCDI federation. Organizations provide institutional context and ownership for data sources.
+    Tags:
+      Category: administrative
+      Assignment: core
+      Class: primary
+      Template: 'No'
+    Props:
+      - identifier
+      - name
+      - institution
+      - metadata
+
+  namespace:
+    Desc: A namespace represents a logical grouping of data within an organization. Each namespace has a unique identifier and provides organizational structure for subjects, samples, and files.
+    Tags:
+      Category: administrative
+      Assignment: core
+      Class: primary
+      Template: 'No'
+    Props:
+      - identifier
+      - description
+      - contact_email
+      - study_funding_id
+      - study_id
+      - study_name
+      - study_short_title
+      - metadata
+
+  subject:
+    Desc: A research subject or participant in pediatric cancer studies. The subject represents the primary entity around which clinical, demographic, and outcome data are collected.
+    Tags:
+      Category: clinical
+      Assignment: core
+      Class: primary
+      Template: 'No'
+    Props:
+      - identifier
+      - name
+      - sex
+      - race
+      - ethnicity
+      - identifiers
+      - vital_status
+      - age_at_vital_status
+      - associated_diagnoses
+      - metadata
+
+  sample:
+    Desc: A biological sample collected from a subject. Samples contain detailed information about the collection process, preservation, molecular characteristics, and diagnostic context.
+    Tags:
+      Category: biospecimen
+      Assignment: core
+      Class: primary
+      Template: 'No'
+    Props:
+      - identifier
+      - subject_identifier
+      - age_at_diagnosis
+      - age_at_collection
+      - anatomical_site
+      - diagnosis
+      - disease_phase
+      - tissue_type
+      - tumor_classification
+      - tumor_tissue_morphology
+      - tumor_grade
+      - library_strategy
+      - library_source_material
+      - library_selection_method
+      - preservation_method
+      - specimen_molecular_analyte_type
+      - identifiers
+      - metadata
+
+  file:
+    Desc: Data files associated with subjects and samples. Files represent digital artifacts such as genomic data, imaging data, or other research outputs stored in various formats.
+    Tags:
+      Category: data_file
+      Assignment: core
+      Class: primary
+      Template: 'No'
+    Props:
+      - identifier
+      - name
+      - type
+      - size
+      - description
+      - checksums
+      - samples
+      - metadata
+
+  gateway:
+    Desc: Access mechanisms through which subjects, samples, and files can be retrieved or accessed. Gateways provide the technical infrastructure for data access and integration.
+    Tags:
+      Category: administrative
+      Assignment: core
+      Class: secondary
+      Template: 'No'
+    Props:
+      - name
+      - kind
+      - status
+      - url
+      - metadata
+
+Relationships:
+  belongs_to_organization:
+    Mul: many_to_one
+    Ends:
+      - Src: namespace
+        Dst: organization
+    Props: null
+
+  belongs_to_namespace:
+    Mul: many_to_one
+    Ends:
+      - Src: subject
+        Dst: namespace
+    Props: null
+
+  belongs_to_subject:
+    Mul: many_to_one
+    Ends:
+      - Src: sample
+        Dst: subject
+    Props: null
+
+  belongs_to_samples:
+    Mul: many_to_many
+    Ends:
+      - Src: file
+        Dst: sample
+    Props: null
+
+  accessed_through_gateway:
+    Mul: many_to_many
+    Ends:
+      - Src: subject
+        Dst: gateway
+      - Src: sample
+        Dst: gateway
+      - Src: file
+        Dst: gateway
+    Props: null

@@ -1,9 +1,9 @@
 {
     "model-files": [
-    "model-desc/model_file.yaml",
-    "model-desc/model_properties_file.yaml"
+    "model-desc/fed_model.yml",
+    "model-desc/fed_model.props.yml"
 ],
-    "prop-file": "model-desc/model_properties_file.yaml",
+    "prop-file": "model-desc/fed_model.props.yml",
     "readme-file": "model-navigator-resources/README.md",
     "loading-file": "model-navigator-resources/Example_Files.zip",
     "model-navigator-logo": "model-navigator-resources/logo.png",
@@ -27,6 +27,7 @@
   "configuration": {
     "pageTitle": "CCDI Federation Data Model",
     "pdfConfig": {
+      "enabled": false,
       "fileType": "pdf",
       "prefix": "Federation_",
       "downloadPrefix": "Federation_",

@@ -1,0 +1,515 @@
+# CCDI Federation Data Model - Property Specifications
+# Generated from OpenAPI Federation Resource v1.2.0
+
+PropDefinitions:
+  # Organization properties
+  identifier:
+    Desc: A unique identifier for the organization within the federation ecosystem
+    Term:
+      - Origin: local
+        Code: 'org_identifier'
+        Value: 'Organization Identifier'
+    Src: CCDI
+    Type: string
+    Req: 'Yes'
+
+  name:
+    Desc: The official name of the organization or institution
+    Term:
+      - Origin: caDSR
+        Code: '11459804'
+        Value: 'Organization Name'
+    Src: CCDI
+    Type: string
+    Req: 'Yes'
+
+  institution:
+    Desc: The institutional affiliation or name associated with the organization
+    Term:
+      - Origin: caDSR
+        Code: 'cde.v1.organization.Institution'
+        Value: 'Institution'
+    Src: CCDI
+    Type: string
+    Req: 'No'
+
+  # Namespace properties
+  description:
+    Desc: A narrative description of the namespace and its purpose within the organization
+    Term:
+      - Origin: local
+        Code: 'namespace_description'
+        Value: 'Namespace Description'
+    Src: CCDI
+    Type: string
+    Req: 'Yes'
+
+  contact_email:
+    Desc: A support email address for entities contained within the namespace
+    Term:
+      - Origin: local
+        Code: 'contact_email'
+        Value: 'Contact Email'
+    Src: CCDI
+    Type: string
+    Req: 'Yes'
+
+  study_funding_id:
+    Desc: The funding identifier associated with the study
+    Term:
+      - Origin: caDSR
+        Code: 'cde.v1.namespace.StudyFundingId'
+        Value: 'Study Funding ID'
+    Src: CCDI
+    Type: string
+    Req: 'No'
+
+  study_id:
+    Desc: A unique identifier assigned to the clinical study
+    Term:
+      - Origin: caDSR
+        Code: 'cde.v1.namespace.StudyId'
+        Value: 'Study ID'
+    Src: CCDI
+    Type: string
+    Req: 'No'
+
+  study_name:
+    Desc: The narrative title used to refer to the research data collection
+    Term:
+      - Origin: caDSR
+        Code: 'cde.v1.namespace.StudyName'
+        Value: 'Study Name'
+    Src: CCDI
+    Type: string
+    Req: 'No'
+
+  study_short_title:
+    Desc: An abbreviated form of the study title
+    Term:
+      - Origin: caDSR
+        Code: 'cde.v2.namespace.StudyShortTitle'
+        Value: 'Study Short Title'
+    Src: CCDI
+    Type: string
+    Req: 'No'
+
+  # Subject properties
+  subject_identifier:
+    Desc: A unique identifier for the subject within the source namespace
+    Term:
+      - Origin: local
+        Code: 'subject_identifier'
+        Value: 'Subject Identifier'
+    Src: CCDI
+    Type: string
+    Req: 'Yes'
+
+  sex:
+    Desc: The biological sex of the subject
+    Term:
+      - Origin: caDSR
+        Code: 'cde.v1.subject.Sex'
+        Value: 'Sex'
+    Src: CCDI
+    Enum:
+      - 'Female'
+      - 'Male'
+      - 'Unknown'
+      - 'Unspecified'
+      - 'UNDIFFERENTIATED'
+    Req: 'No'
+
+  race:
+    Desc: The race or races of the subject
+    Term:
+      - Origin: caDSR
+        Code: 'cde.v1.subject.Race'
+        Value: 'Race'
+    Src: CCDI
+    Type:
+      value_type: list
+      item_type: string
+    Req: 'No'
+
+  ethnicity:
+    Desc: The ethnicity of the subject
+    Term:
+      - Origin: caDSR
+        Code: 'cde.v2.subject.Ethnicity'
+        Value: 'Ethnicity'
+    Src: CCDI
+    Enum:
+      - 'Hispanic or Latino'
+      - 'Not Hispanic or Latino'
+      - 'Not reported'
+      - 'Unknown'
+    Req: 'No'
+
+  identifiers:
+    Desc: Alternative identifiers for the subject across different systems
+    Term:
+      - Origin: local
+        Code: 'subject_identifiers'
+        Value: 'Subject Identifiers'
+    Src: CCDI
+    Type:
+      value_type: list
+      item_type: string
+    Req: 'No'
+
+  vital_status:
+    Desc: The vital status of the subject at the time of last contact
+    Term:
+      - Origin: caDSR
+        Code: 'cde.v1.subject.VitalStatus'
+        Value: 'Vital Status'
+    Src: CCDI
+    Enum:
+      - 'Alive'
+      - 'Dead'
+      - 'Unknown'
+      - 'Unspecified'
+    Req: 'No'
+
+  age_at_vital_status:
+    Desc: The approximate age at vital status determination in days
+    Term:
+      - Origin: local
+        Code: 'age_at_vital_status'
+        Value: 'Age at Vital Status'
+    Src: CCDI
+    Type: number
+    Req: 'No'
+
+  associated_diagnoses:
+    Desc: The associated diagnoses for the subject
+    Term:
+      - Origin: local
+        Code: 'associated_diagnoses'
+        Value: 'Associated Diagnoses'
+    Src: CCDI
+    Type:
+      value_type: list
+      item_type: string
+    Req: 'No'
+
+  # Sample properties
+  age_at_diagnosis:
+    Desc: The age of the subject at the time of diagnosis in days
+    Term:
+      - Origin: local
+        Code: 'age_at_diagnosis'
+        Value: 'Age at Diagnosis'
+    Src: CCDI
+    Type: number
+    Req: 'No'
+
+  age_at_collection:
+    Desc: The age of the subject at the time of sample collection in days
+    Term:
+      - Origin: local
+        Code: 'age_at_collection'
+        Value: 'Age at Collection'
+    Src: CCDI
+    Type: number
+    Req: 'No'
+
+  anatomical_site:
+    Desc: The anatomical site from which the sample was collected
+    Term:
+      - Origin: local
+        Code: 'anatomical_site'
+        Value: 'Anatomical Site'
+    Src: CCDI
+    Type: string
+    Req: 'No'
+
+  diagnosis:
+    Desc: The diagnosis associated with the sample
+    Term:
+      - Origin: local
+        Code: 'sample_diagnosis'
+        Value: 'Sample Diagnosis'
+    Src: CCDI
+    Type: string
+    Req: 'No'
+
+  disease_phase:
+    Desc: The phase of disease at the time of sample collection
+    Term:
+      - Origin: caDSR
+        Code: 'cde.v1.sample.DiseasePhase'
+        Value: 'Disease Phase'
+    Src: CCDI
+    Enum:
+      - 'Initial Diagnosis'
+      - 'Progression'
+      - 'Recurrence'
+      - 'Relapse/Progression'
+      - 'Unknown'
+    Req: 'No'
+
+  tissue_type:
+    Desc: The type of tissue from which the sample was derived
+    Term:
+      - Origin: caDSR
+        Code: 'cde.v1.sample.TissueType'
+        Value: 'Tissue Type'
+    Src: CCDI
+    Enum:
+      - 'Normal'
+      - 'Tumor'
+      - 'Unknown'
+    Req: 'No'
+
+  tumor_classification:
+    Desc: The classification of the tumor sample
+    Term:
+      - Origin: caDSR
+        Code: 'cde.v1.sample.TumorClassification'
+        Value: 'Tumor Classification'
+    Src: CCDI
+    Enum:
+      - 'Primary'
+      - 'Metastatic'
+      - 'Recurrent'
+      - 'Unknown'
+    Req: 'No'
+
+  tumor_tissue_morphology:
+    Desc: The morphological characteristics of the tumor tissue
+    Term:
+      - Origin: caDSR
+        Code: 'cde.v1.sample.TumorTissueMorphology'
+        Value: 'Tumor Tissue Morphology'
+    Src: CCDI
+    Type: object
+    Req: 'No'
+
+  tumor_grade:
+    Desc: The histological grade of the tumor
+    Term:
+      - Origin: caDSR
+        Code: 'cde.v2.sample.TumorGrade'
+        Value: 'Tumor Grade'
+    Src: CCDI
+    Enum:
+      - 'Grade I'
+      - 'Grade II'
+      - 'Grade III'
+      - 'Grade IV'
+      - 'Unknown'
+    Req: 'No'
+
+  library_strategy:
+    Desc: The sequencing library strategy used for the sample
+    Term:
+      - Origin: caDSR
+        Code: 'cde.v1.sample.LibraryStrategy'
+        Value: 'Library Strategy'
+    Src: CCDI
+    Enum:
+      - 'WGS'
+      - 'WXS'
+      - 'RNA-Seq'
+      - 'miRNA-Seq'
+      - 'ChIP-Seq'
+      - 'ATAC-seq'
+      - 'Targeted Sequencing'
+    Req: 'No'
+
+  library_source_material:
+    Desc: The source material used for library preparation
+    Term:
+      - Origin: caDSR
+        Code: 'cde.v1.sample.LibrarySourceMaterial'
+        Value: 'Library Source Material'
+    Src: CCDI
+    Enum:
+      - 'Genomic DNA'
+      - 'Total RNA'
+      - 'mRNA'
+      - 'miRNA'
+      - 'Not Reported'
+    Req: 'No'
+
+  library_selection_method:
+    Desc: The method used to select or enrich the library
+    Term:
+      - Origin: caDSR
+        Code: 'cde.v2.sample.LibrarySelectionMethod'
+        Value: 'Library Selection Method'
+    Src: CCDI
+    Enum:
+      - 'Random'
+      - 'PCR'
+      - 'Random PCR'
+      - 'RT-PCR'
+      - 'HMPR'
+      - 'MF'
+      - 'CF-S'
+      - 'CF-M'
+      - 'CF-H'
+      - 'CF-T'
+      - 'MDA'
+      - 'MSLL'
+      - 'cDNA'
+      - 'ChIP'
+      - 'MNase'
+      - 'DNAse'
+      - 'Hybrid Selection'
+      - 'Reduced Representation'
+      - 'Restriction Digest'
+      - '5-methylcytidine antibody'
+      - 'MBD2 protein methyl-CpG binding domain'
+      - 'CAGE'
+      - 'RACE'
+      - 'size fractionation'
+      - 'Padlock probes capture method'
+      - 'other'
+      - 'unspecified'
+      - 'Poly-A Enriched Genomic Library'
+    Req: 'No'
+
+  preservation_method:
+    Desc: The method used to preserve the sample
+    Term:
+      - Origin: caDSR
+        Code: 'cde.v2.sample.PreservationMethod'
+        Value: 'Preservation Method'
+    Src: CCDI
+    Enum:
+      - 'Cryopreserved'
+      - 'FFPE'
+      - 'Fresh'
+      - 'Frozen'
+      - 'OCT'
+      - 'Snap Frozen'
+      - 'Unknown'
+    Req: 'No'
+
+  specimen_molecular_analyte_type:
+    Desc: The type of molecular analyte extracted from the specimen
+    Term:
+      - Origin: caDSR
+        Code: 'cde.v1.sample.SpecimenMolecularAnalyteType'
+        Value: 'Specimen Molecular Analyte Type'
+    Src: CCDI
+    Enum:
+      - 'DNA'
+      - 'RNA'
+      - 'Protein'
+      - 'miRNA'
+      - 'cfDNA'
+    Req: 'No'
+
+  # File properties
+  type:
+    Desc: The format or type of the data file
+    Term:
+      - Origin: caDSR
+        Code: 'cde.v1.file.Type'
+        Value: 'File Type'
+    Src: CCDI
+    Enum:
+      - 'FASTQ'
+      - 'BAM'
+      - 'CRAM'
+      - 'VCF'
+      - 'MAF'
+      - 'TSV'
+      - 'CSV'
+      - 'JSON'
+      - 'XML'
+      - 'PDF'
+      - 'DICOM'
+      - 'TIFF'
+      - 'PNG'
+      - 'JPEG'
+      - 'BED'
+      - 'BEDPE Format'
+      - 'bigBed'
+      - 'bigWig'
+      - 'GFF3'
+      - 'GTF'
+      - 'HDF5'
+      - 'ZIP'
+    Req: 'No'
+
+  size:
+    Desc: The size of the file in bytes
+    Term:
+      - Origin: caDSR
+        Code: 'cde.v1.file.Size'
+        Value: 'File Size'
+    Src: CCDI
+    Type: integer
+    Req: 'No'
+
+  checksums:
+    Desc: Cryptographic checksums for file integrity verification
+    Term:
+      - Origin: local
+        Code: 'file_checksums'
+        Value: 'File Checksums'
+    Src: CCDI
+    Type: object
+    Req: 'No'
+
+  samples:
+    Desc: List of sample identifiers associated with this file
+    Term:
+      - Origin: local
+        Code: 'associated_samples'
+        Value: 'Associated Samples'
+    Src: CCDI
+    Type:
+      value_type: list
+      item_type: string
+    Req: 'Yes'
+
+  # Gateway properties
+  kind:
+    Desc: The type or kind of gateway providing access to the data
+    Term:
+      - Origin: local
+        Code: 'gateway_kind'
+        Value: 'Gateway Kind'
+    Src: CCDI
+    Type: string
+    Req: 'No'
+
+  status:
+    Desc: The current operational status of the gateway
+    Term:
+      - Origin: local
+        Code: 'gateway_status'
+        Value: 'Gateway Status'
+    Src: CCDI
+    Enum:
+      - 'Open'
+      - 'Closed'
+      - 'Controlled'
+    Req: 'No'
+
+  url:
+    Desc: The uniform resource locator for accessing the gateway
+    Term:
+      - Origin: local
+        Code: 'gateway_url'
+        Value: 'Gateway URL'
+    Src: CCDI
+    Type: string
+    Req: 'No'
+
+  # Common properties
+  metadata:
+    Desc: Additional metadata and unharmonized fields specific to the entity
+    Term:
+      - Origin: local
+        Code: 'entity_metadata'
+        Value: 'Entity Metadata'
+    Src: CCDI
+    Type: object
+    Req: 'No'
