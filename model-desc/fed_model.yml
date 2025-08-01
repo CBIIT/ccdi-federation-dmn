@@ -5,7 +5,7 @@ Nodes:
   organization:
     Desc: An organization that owns namespaces within the CCDI federation. Organizations provide institutional context and ownership for data sources.
     Tags:
-      Category: administrative
+      Category: core
       Assignment: core
       Class: primary
       Template: 'No'
@@ -18,7 +18,7 @@ Nodes:
   namespace:
     Desc: A namespace represents a logical grouping of data within an organization. Each namespace has a unique identifier and provides organizational structure for subjects, samples, and files.
     Tags:
-      Category: administrative
+      Category: core
       Assignment: core
       Class: primary
       Template: 'No'
@@ -35,7 +35,7 @@ Nodes:
   subject:
     Desc: A research subject or participant in pediatric cancer studies. The subject represents the primary entity around which clinical, demographic, and outcome data are collected.
     Tags:
-      Category: clinical
+      Category: core
       Assignment: core
       Class: primary
       Template: 'No'
@@ -48,7 +48,7 @@ Nodes:
   subject_data:
     Desc: Detailed data structure containing comprehensive information about a subject including identifiers and relationships.
     Tags:
-      Category: clinical
+      Category: core
       Assignment: core
       Class: secondary
       Template: 'No'
@@ -61,7 +61,7 @@ Nodes:
   subject_metadata:
     Desc: Metadata container for subject-specific information including demographics, vital status, and clinical characteristics.
     Tags:
-      Category: clinical
+      Category: core
       Assignment: core
       Class: secondary
       Template: 'No'
@@ -79,7 +79,7 @@ Nodes:
   subject_id:
     Desc: Identifier structure for subjects containing namespace and name components.
     Tags:
-      Category: clinical
+      Category: core
       Assignment: core
       Class: secondary
       Template: 'No'
@@ -90,7 +90,7 @@ Nodes:
   sample:
     Desc: A biological sample collected from a subject. Samples contain detailed information about the collection process, preservation, molecular characteristics, and diagnostic context.
     Tags:
-      Category: biospecimen
+      Category: core
       Assignment: core
       Class: primary
       Template: 'No'
@@ -103,7 +103,7 @@ Nodes:
   sample_data:
     Desc: Detailed data structure containing comprehensive information about a sample including identifiers and relationships to subjects.
     Tags:
-      Category: biospecimen
+      Category: core
       Assignment: core
       Class: secondary
       Template: 'No'
@@ -116,7 +116,7 @@ Nodes:
   sample_metadata:
     Desc: Metadata container for sample-specific information including diagnostic details, collection methods, and molecular characteristics.
     Tags:
-      Category: biospecimen
+      Category: core
       Assignment: core
       Class: secondary
       Template: 'No'
@@ -142,7 +142,7 @@ Nodes:
   sample_id:
     Desc: Identifier structure for samples containing namespace and name components.
     Tags:
-      Category: biospecimen
+      Category: core
       Assignment: core
       Class: secondary
       Template: 'No'
@@ -153,7 +153,7 @@ Nodes:
   file:
     Desc: Data files associated with subjects and samples. Files represent digital artifacts such as genomic data, imaging data, or other research outputs stored in various formats.
     Tags:
-      Category: data_file
+      Category: core
       Assignment: core
       Class: primary
       Template: 'No'
@@ -166,7 +166,7 @@ Nodes:
   file_data:
     Desc: Detailed data structure containing comprehensive information about a file including identifiers and associated samples.
     Tags:
-      Category: data_file
+      Category: core
       Assignment: core
       Class: secondary
       Template: 'No'
@@ -179,7 +179,7 @@ Nodes:
   file_metadata:
     Desc: Metadata container for file-specific information including type, size, checksums, and descriptions.
     Tags:
-      Category: data_file
+      Category: core
       Assignment: core
       Class: secondary
       Template: 'No'
@@ -194,7 +194,7 @@ Nodes:
   file_id:
     Desc: Identifier structure for files containing namespace and name components.
     Tags:
-      Category: data_file
+      Category: core
       Assignment: core
       Class: secondary
       Template: 'No'
@@ -205,7 +205,7 @@ Nodes:
   file_namespace:
     Desc: Namespace information specific to file organization and identification within the federation.
     Tags:
-      Category: data_file
+      Category: core
       Assignment: core
       Class: secondary
       Template: 'No'
@@ -216,7 +216,7 @@ Nodes:
   gateway:
     Desc: Access mechanisms through which subjects, samples, and files can be retrieved or accessed. Gateways provide the technical infrastructure for data access and integration.
     Tags:
-      Category: administrative
+      Category: core
       Assignment: core
       Class: secondary
       Template: 'No'
