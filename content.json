@@ -26,7 +26,7 @@
   "configuration": {
     "pageTitle": "CCDI Federation Data Model",
     "pdfConfig": {
-      "enabled": false,
+      "enabled": true,
       "fileType": "pdf",
       "prefix": "Federation_",
       "downloadPrefix": "Federation_",
